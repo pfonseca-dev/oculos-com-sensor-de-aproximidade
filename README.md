@@ -1,80 +1,147 @@
-Óculos inteligentes com sensor ultrassônico 👓📡
-Um dispositivo de assistência simples construído com Arduino (C++) que usa um sensor ultrassônico para detectar obstáculos e alertar o usuário através de um sistema de som da campainha.
+# Smart Glasses with Ultrasonic Sensor 👓📡
 
-O sistema altera o padrão sonoro com base na distância, ajudando o usuário a entender o quão próximo um objeto está.
+A simple assistive device built with **Arduino (C++)** that uses an **ultrasonic sensor** to detect obstacles and alert the user through a **buzzer sound system**.
 
-Este projeto foi criado para propósitos de aprendizagem para praticar sistemas embarcados, integração de sensores e feedback em tempo real.
+The system changes the sound pattern based on the distance, helping the user understand how close an object is.
 
-Tecnologias Utilizadas
-Arduino / C++
-Sensor ultrassônico (HC-SR04)
-Campainha
-PWM (tom)
-Monitor serial
-Visão geral do projeto
-O dispositivo funciona como um básico protótipo de óculos inteligentes assistivos:
+This project was created for **learning purposes** to practice embedded systems, sensor integration, and real-time feedback.
 
-Detecta obstáculos na frente do usuário
-Calcula a distância usando ondas ultrassônicas
-Converte distância em feedback sonoro
-Alerta o usuário com diferentes padrões de bipe
-Componentes
-Placa Arduino
-Sensor ultrassônico (HC-SR04)
-Campainha
-Fios de ligação
-Fonte de alimentação
-Configuração do pino
+---
+
+# Technologies Used
+
+* Arduino / C++
+* Ultrasonic Sensor (HC-SR04)
+* Buzzer
+* PWM (tone)
+* Serial Monitor
+
+---
+
+# Project Overview
+
+The device works as a basic **assistive smart glasses prototype**:
+
+* Detects obstacles in front of the user
+* Calculates distance using ultrasonic waves
+* Converts distance into sound feedback
+* Alerts the user with different beep patterns
+
+---
+
+# Components
+
+* Arduino board
+* Ultrasonic sensor (HC-SR04)
+* Buzzer
+* Jumper wires
+* Power supply
+
+---
+
+# Pin Configuration
+
+```cpp
 const int pinoBuzzer = 2;
 const int triggerPin = 5;
 const int echoPin = 7;
-Como funciona
-O sensor ultrassônico envia um sinal
-O sinal reflete em um objeto
-O sistema calcula a distância em centímetros
-A campainha muda seu comportamento com base na distância
-Lógica de Distância
-Distância	Comportamento
-≤ 5 cm	Som contínuo (muito próximo)
-5–20 cm	Bip rápido
-20–40 cm	Bip médio
-40–50 cm	Bip lento
-> 50 cm	Sem som
-Funções principais
-Leitura à distância
+```
+
+---
+
+# How It Works
+
+1. The ultrasonic sensor sends a signal
+2. The signal reflects off an object
+3. The system calculates the distance in centimeters
+4. The buzzer changes its behavior based on distance
+
+---
+
+# Distance Logic
+
+| Distance | Behavior |
+|--------|---------|
+| ≤ 5 cm | Continuous sound (very close) |
+| 5–20 cm | Fast beep |
+| 20–40 cm | Medium beep |
+| 40–50 cm | Slow beep |
+| > 50 cm | No sound |
+
+---
+
+# Main Functions
+
+## Distance reading
+
+```cpp
 readUltrasonicDistance(triggerPin, echoPin)
-Responsável por enviar e receber o sinal ultrassônico.
+```
 
-Feedback sonoro
-tone()→ ativa a campainha
-noTone()→ para o som
-Comportamento em loop
-Continuamente:
+Responsible for sending and receiving the ultrasonic signal.
 
-Lê distância
-Imprime valor no Serial Monitor
-Ajusta o padrão sonoro
-Exemplo de saída
+---
+
+## Sound feedback
+
+* `tone()` → activates buzzer  
+* `noTone()` → stops sound  
+
+---
+
+## Loop behavior
+
+Continuously:
+
+* Reads distance
+* Prints value in Serial Monitor
+* Adjusts sound pattern
+
+---
+
+# Example Output
+
+```
 25 cm
-Destaques do código
-Cálculo de distância em tempo real
-Lógica condicional para padrões sonoros
-Integração de sensores ultrassônicos
-Sistema de feedback usando campainha
-Lógica incorporada simples e eficiente
-Possíveis melhorias
-Adicione motor de vibração para feedback silencioso
-Melhore a precisão com filtragem
-Adicione sistema de bateria para portabilidade
-Integrar com armação vestível (óculos reais)
-Adicione Bluetooth ou integração móvel
-Objetivos de aprendizagem
-Este projeto foi criado para praticar:
+```
 
-Programação incorporada com Arduino
-Integração de sensores (ultrassônicos)
-Controle do atuador (campainha)
-Tomada de decisão em tempo real
-Conceitos de tecnologia assistiva
-Autor
-Luis Filippe Reis Nogueira | Analise Correa Garcia Ângelo | Pedro Fonseca | Pedro Martinho
+---
+
+# Code Highlights
+
+* Real-time distance calculation
+* Conditional logic for sound patterns
+* Ultrasonic sensor integration
+* Feedback system using buzzer
+* Simple and efficient embedded logic
+
+---
+
+# Possible Improvements
+
+* Add vibration motor for silent feedback
+* Improve accuracy with filtering
+* Add battery system for portability
+* Integrate with wearable frame (real glasses)
+* Add Bluetooth or mobile integration
+
+---
+
+# Learning Goals
+
+This project was created to practice:
+
+* Embedded programming with Arduino
+* Sensor integration (ultrasonic)
+* Actuator control (buzzer)
+* Real-time decision making
+* Assistive technology concepts
+
+---
+
+# Author
+
+Analyce Correa Garcia Angelo |
+Luis Filippe Reis Nogueira |
+Pedro Fonseca Martins |
+Pedro Henrique Martinho Monteiro
